@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const { kakao } = window;
 
-function Map() {
+function Map({ searchPlace }) {
   // get user current position (latitude, longitude)
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
@@ -32,6 +32,12 @@ function Map() {
       level: 3,
     };
     const map = new kakao.maps.Map(container, options);
+
+    // put the pin on the place.
+    let marker = new kakao.maps.Marker({
+      map: map,
+      position: new kakao.maps.LatLng(latitude, longitude),
+    });
   }, [latitude, longitude]);
 
   return (
@@ -41,6 +47,7 @@ function Map() {
         width: "600px",
         height: "400px",
         margin: "10px",
+        marginLeft: "30%",
       }}
     ></div>
   );
