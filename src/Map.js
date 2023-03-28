@@ -44,10 +44,14 @@ function Map({ searchPlace }) {
     <div
       id="map"
       style={{
+        display: "flex",
         width: "600px",
         height: "400px",
-        margin: "10px",
-        marginLeft: "30%",
+        margin: "auto",
+        marginTop: "10px",
+        justifyContent: "center",
+        border: "2px solid #00bfff",
+        borderRadius: "20px",
       }}
     ></div>
   );
