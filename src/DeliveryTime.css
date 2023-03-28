@@ -86,6 +86,7 @@
   left: -500px;
   position: relative;
   animation: droneColorMove 5s infinite;
+  transform: rotate(25deg);
 }
 @keyframes droneColorMove {
   from {
