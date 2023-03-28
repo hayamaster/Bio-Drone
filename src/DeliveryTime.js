@@ -7,14 +7,14 @@ const DeliveryTime = () => {
       <div className="title">배달 중...</div>
       <div className="container1">
         <div className="discription">
-          <p>바이오 드론이</p>
+          <p style={{ fontSize: "35px" }}>바이오 드론이</p>
           <p>안전하고 신속하게 배달 중입니다.</p>
         </div>
         <img className="drone" src="./drone.png" alt="Drone" />
         <div className="time">
           <div className="timeBox">
             <p>남은시간</p>
-            <p>5분</p>
+            <p className="clock">5분</p>
           </div>
         </div>
       </div>
