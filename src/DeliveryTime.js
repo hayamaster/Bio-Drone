@@ -27,6 +27,10 @@ const DeliveryTime = ({ drugLat, drugLon }) => {
   console.log(dist + " kilometer");
   // fastest speed of delivery drone is 54 [km/h]
   const dist2min = (dist * 60) / 54;
+  //   const [dist2min, setDist2min] = useState(0);
+  //   useEffect(() => {
+  //     setDist2min((dist * 60) / 54);
+  //   }, [latitude, longitude]);
 
   let hours = new Date().getHours();
   let minutes = parseInt(new Date().getMinutes() + dist2min + 5);
@@ -40,16 +44,16 @@ const DeliveryTime = ({ drugLat, drugLon }) => {
       <div className="title">배달 중...</div>
       <div className="container1">
         <div className="discription">
-          <p style={{ fontSize: "35px" }}>바이오 드론이</p>
-          <p>안전하고 신속하게 배달 중입니다.</p>
+          <p style={{ fontSize: "50px", margin: "0" }}>바이오 드론이</p>
+          <p style={{ margin: "0" }}>안전하고 신속하게 배달 중입니다.</p>
         </div>
         <img className="drone" src="./drone.png" alt="Drone" />
         <div className="time">
           <div className="timeBox">
-            <p>도착 예정 시간</p>
+            <p style={{ fontSize: "25px", margin: "10px" }}>도착 예정 시간</p>
             <p className="clock">
               {dist2min > 10000
-                ? `?`
+                ? dist2min
                 : `${hours} : ${minutes < 10 ? `0${minutes}` : minutes}`}
             </p>
           </div>
