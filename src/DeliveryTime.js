@@ -6,7 +6,8 @@ const DeliveryTime = ({ drugLat, drugLon }) => {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
 
-  window.addEventListener("load", () => {
+  // only one time, get user position.
+  useEffect(() => {
     if (window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(success, error);
     }
@@ -19,19 +20,16 @@ const DeliveryTime = ({ drugLat, drugLon }) => {
     function error() {
       console.log("Error! to get your current position.");
     }
-  });
-  console.log(latitude);
-  console.log(longitude);
+  }, []);
 
-  const dist = getDistance(latitude, longitude, drugLat, drugLon);
-  console.log(dist + " kilometer");
-  // fastest speed of delivery drone is 54 [km/h]
-  const dist2min = (dist * 60) / 54;
-  //   const [dist2min, setDist2min] = useState(0);
-  //   useEffect(() => {
-  //     setDist2min((dist * 60) / 54);
-  //   }, [latitude, longitude]);
+  // get distance between drugstore and my current position.
+  const dist = getDistance(latitude, longitude, drugLat, drugLon); // [km]
 
+  // fastest speed of delivery drone is 54 [km/h] referencing paper
+  const dist2min = (dist * 60) / 54; // [min]
+
+  // display predicted delivery time like [hours : minutes]
+  // current time + dist2min + preparing time (5 minutes)
   let hours = new Date().getHours();
   let minutes = parseInt(new Date().getMinutes() + dist2min + 5);
   if (minutes >= 60) {
@@ -53,7 +51,7 @@ const DeliveryTime = ({ drugLat, drugLon }) => {
             <p style={{ fontSize: "25px", margin: "10px" }}>도착 예정 시간</p>
             <p className="clock">
               {dist2min > 10000
-                ? dist2min
+                ? `?`
                 : `${hours} : ${minutes < 10 ? `0${minutes}` : minutes}`}
             </p>
           </div>
@@ -67,6 +65,7 @@ const DeliveryTime = ({ drugLat, drugLon }) => {
   );
 };
 
+// this function is getting distance certain between drugstore and my current position.
 const getDistance = (lat1, lon1, lat2, lon2) => {
   // convert decimal degree to radian
   const deg2rad = (deg) => (deg * Math.PI) / 180.0;
