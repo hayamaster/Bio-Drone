@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./DeliveryTime.css";
+import drone from "./images/drone.png";
+import drone_color from "./images/drone_color.png";
 
 const DeliveryTime = ({ drugLat, drugLon }) => {
   // get user current position (latitude, longitude)
@@ -45,7 +47,7 @@ const DeliveryTime = ({ drugLat, drugLon }) => {
           <p style={{ fontSize: "50px", margin: "0" }}>바이오 드론이</p>
           <p style={{ margin: "0" }}>안전하고 신속하게 배달 중입니다.</p>
         </div>
-        <img className="drone" src="./drone.png" alt="Drone" />
+        <img className="drone" src={drone} alt="Drone" />
         <div className="time">
           <div className="timeBox">
             <p style={{ fontSize: "25px", margin: "10px" }}>도착 예정 시간</p>
@@ -59,7 +61,7 @@ const DeliveryTime = ({ drugLat, drugLon }) => {
       </div>
       <div className="droneBarContainer">
         <div className="droneBar"></div>
-        <img className="droneColor" src="./drone_color.png" alt="DroneColor" />
+        <img className="droneColor" src={drone_color} alt="DroneColor" />
       </div>
     </>
   );
