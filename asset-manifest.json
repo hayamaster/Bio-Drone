@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/bio-drone/static/css/main.686cdec4.css",
+    "main.js": "/bio-drone/static/js/main.b0b2d254.js",
+    "static/media/EastSeaDokdo-Regular.ttf": "/bio-drone/static/media/EastSeaDokdo-Regular.8c3978302b9aaca7cf99.ttf",
+    "index.html": "/bio-drone/index.html",
+    "main.686cdec4.css.map": "/bio-drone/static/css/main.686cdec4.css.map",
+    "main.b0b2d254.js.map": "/bio-drone/static/js/main.b0b2d254.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.686cdec4.css",
+    "static/js/main.b0b2d254.js"
+  ]
+}
